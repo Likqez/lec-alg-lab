@@ -1,10 +1,14 @@
 # ninja log v6
 4	103	7397910314621252	CMakeFiles/AlgoLab2.dir/main.c.obj	a195ce4f244bf42e
-105	263	7397910315635603	AlgoLab2.exe	d58c2bf7ff7ad122
+6	151	7398000877199609	CMakeFiles/AlgoLab2.dir/dhbwstudentmap.c.obj	2929e3b47d83421b
+5	114	7397938285817252	CMakeFiles/AlgoLab2.dir/dhbwstudentlist.c.obj	985cb916bba63a60
+272	522	7398021282282020	AlgoLab2.exe	bc46a539c90db820
 10	145	7397913253199905	CMakeFiles/AlgoLab2.dir/dhbwstudent.c.obj	6418ee1879c11b63
-23	160	7397913253320489	CMakeFiles/AlgoLab2.dir/dhbwstudentmap.c.obj	2929e3b47d83421b
-16	162	7397913253257018	CMakeFiles/AlgoLab2.dir/dhbwstudentlist.c.obj	985cb916bba63a60
-30	167	7397913253401736	CMakeFiles/AlgoLab2.dir/dhbwstudenttree.c.obj	61dbfbe6836a788f
-38	199	7397913253480179	CMakeFiles/AlgoLab2.dir/dhbwtest.c.obj	fc3ac4f8a11b54ec
-2	202	7397913253120736	CMakeFiles/AlgoLab2.dir/datastructures.c.obj	6651ab3a8e3c1d64
-203	334	7397913255127518	AlgoLab2.exe	bc46a539c90db820
+9	270	7398021279663535	CMakeFiles/AlgoLab2.dir/dhbwstudenttree.c.obj	61dbfbe6836a788f
+7	167	7397918068356240	CMakeFiles/AlgoLab2.dir/dhbwtest.c.obj	fc3ac4f8a11b54ec
+5	163	7397997596683580	CMakeFiles/AlgoLab2.dir/datastructures.c.obj	6651ab3a8e3c1d64
+37	236	7398023808940368	CMakeFiles/AlgoLab2.dir/dhbwstudenttree.c.obj	61dbfbe6836a788f
+13	355	7398023808703497	CMakeFiles/AlgoLab2.dir/datastructures.c.obj	6651ab3a8e3c1d64
+355	580	7398023812117828	AlgoLab2.exe	bc46a539c90db820
+9	214	7398024581013981	CMakeFiles/AlgoLab2.dir/dhbwstudenttree.c.obj	61dbfbe6836a788f
+215	443	7398024583071276	AlgoLab2.exe	bc46a539c90db820
