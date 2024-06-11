@@ -72,33 +72,30 @@ bool StudentTImplemented() {
 
 bool StudentTContainsStudent(StudentTP *root_adr, Student_p student) {
     StudentTP node = *root_adr;
-
-    if (node == NULL)return false;
-
-    if (node->student == NULL)
-        return false;
+    if (node == NULL) return false;
+    if (node->student == NULL) return false;
 
     if (node->student->matrnr == student->matrnr)
         return true;
 
     bool res_left = StudentTContainsStudent(&node->lchild, student);
-    if (res_left) return true;
+    if (res_left)
+        return true;
 
     return StudentTContainsStudent(&node->rchild, student);
 }
 
 StudentTP StudentTFindByMatr(StudentTP *root_adr, int matrnr) {
     StudentTP node = *root_adr;
-
-    if (node)return NULL;
-    if (node->student == NULL)
-        return NULL;
+    if (node == NULL) return NULL;
+    if (node->student == NULL) return NULL;
 
     if (node->student->matrnr == matrnr)
         return node;
 
     StudentTP res_left = StudentTFindByMatr(&node->lchild, matrnr);
-    if (res_left != NULL) return res_left;
+    if (res_left != NULL)
+        return res_left;
 
     return StudentTFindByMatr(&node->rchild, matrnr);
 }
