@@ -101,7 +101,18 @@ StudentTP StudentTFindByMatr(StudentTP *root_adr, int matrnr) {
 }
 
 StudentTP StudentTFindByName(StudentTP *root_adr, char *lastname) {
-    return NULL;
+    StudentTP node = *root_adr;
+    if (node == NULL) return NULL;
+    if (node->student == NULL) return NULL;
+
+    if (!strcmp(node->student->lastname,lastname))
+        return node;
+
+    StudentTP res_left = StudentTFindByName(&node->lchild, lastname);
+    if (res_left != NULL)
+        return res_left;
+
+    return StudentTFindByName(&node->rchild, lastname);
 }
 
 StudentLP *StudentTToSortedList(StudentTP *root_adr) {
