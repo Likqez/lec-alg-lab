@@ -105,7 +105,7 @@ StudentTP StudentTFindByName(StudentTP *root_adr, char *lastname) {
     if (node == NULL) return NULL;
     if (node->student == NULL) return NULL;
 
-    if (!strcmp(node->student->lastname,lastname))
+    if (!strcmp(node->student->lastname, lastname))
         return node;
 
     StudentTP res_left = StudentTFindByName(&node->lchild, lastname);
@@ -115,8 +115,54 @@ StudentTP StudentTFindByName(StudentTP *root_adr, char *lastname) {
     return StudentTFindByName(&node->rchild, lastname);
 }
 
-StudentLP *StudentTToSortedList(StudentTP *root_adr) {
-    return NULL;
+void StudentGInsertSorted(StudentLP* head_ref, Student_p new_student) {
+    StudentLP node = StudentLPAlloc(new_student);
+    if (!node) {
+        return;
+    }
+
+    StudentLP current;
+
+    // Spezialfall für den Fall, dass der Kopf der Liste NULL ist
+    // oder der neue Student vor dem Kopf eingefügt werden soll
+    if (*head_ref == NULL || (*head_ref)->student->matrnr >= node->student->matrnr) {
+        node->next = *head_ref;
+        *head_ref = node;
+    } else {
+        // Finde den Knoten, der vor dem Knoten eingefügt werden soll
+        current = *head_ref;
+        while (current->next != NULL && current->next->student->matrnr < node->student->matrnr) {
+            current = current->next;
+        }
+        node->next = current->next;
+        current->next = node;
+    }
+}
+
+void inorderTraversal(StudentTP root, StudentLP* sortedList) {
+    if (root == NULL)
+        return;
+    // links
+    inorderTraversal(root->lchild, sortedList);
+    // current
+    Student_p studentCopy = deepCopy(root->student);
+    StudentGInsertSorted(sortedList, studentCopy);
+    // right
+    inorderTraversal(root->rchild, sortedList);
+}
+
+StudentLP* StudentTToSortedList(StudentTP* root_adr) {
+    if (*root_adr == NULL)
+        return NULL;
+
+    // Dynamisch allozierte sortierte Liste
+    StudentLP* sortedList = malloc(sizeof(StudentLP));
+    if (sortedList == NULL) {
+        return NULL; // Fehler beim Allozieren der Liste
+    }
+    *sortedList = NULL;
+    inorderTraversal(*root_adr, sortedList);
+    return sortedList;
 }
 
 void StudentTInsertSorted(StudentTP *root_adr, Student_p newStudent) {
