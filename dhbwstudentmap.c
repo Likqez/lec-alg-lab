@@ -14,30 +14,30 @@
 //DIESE METHODEN NICHT AENDERN
 
 StudentMP StudentMPAlloc(int mapsize, int (*hashf)(Student_p student, int maxsize)) {
-	StudentMP newStudentMP = malloc(sizeof(StudentM));
+    StudentMP newStudentMP = malloc(sizeof(StudentM));
 
-	newStudentMP->currsize = 0;
-	newStudentMP->maxsize = mapsize;
-	newStudentMP->hashf = hashf;
-	newStudentMP->table = calloc(mapsize, sizeof(Student_p));
-	return newStudentMP;
+    newStudentMP->currsize = 0;
+    newStudentMP->maxsize = mapsize;
+    newStudentMP->hashf = hashf;
+    newStudentMP->table = calloc(mapsize, sizeof(Student_p));
+    return newStudentMP;
 }
 
 void StudentMPFree(StudentMP map) {
-	if (map == NULL)
-			return;
+    if (map == NULL)
+        return;
 
-	for(int i = 0; i < map->maxsize; i++) {
-		StudentFree(map->table[i]);
-	}
+    for (int i = 0; i < map->maxsize; i++) {
+        StudentFree(map->table[i]);
+    }
 
-	free(map);
+    free(map);
 }
 
 int dumbHashByMatr(Student_p student, int maxsize) {
-	//this is a bad hash function as it only gives you 10 possible values
-	//and ignores the lower digits completely
-	return (student->matrnr / 100000) % maxsize;
+    //this is a bad hash function as it only gives you 10 possible values
+    //and ignores the lower digits completely
+    return (student->matrnr / 100000) % maxsize;
 }
 
 
