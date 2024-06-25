@@ -975,7 +975,7 @@ void StudentMBenchmark(StudentLP *inputList) {
 
 }
 
-int main(int argc, char *argv[]) {
+int main2(int argc, char *argv[]) {
 
 
 	clock_t begin, end;
